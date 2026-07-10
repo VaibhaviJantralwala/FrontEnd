@@ -1,0 +1,226 @@
+function Student(props){
+    return (
+        <div>
+        <h2>name : {props.name}</h2>
+        <h2>age : {props.age}</h2>
+        <h2>city : {props.city}</h2>
+        </div>
+    )
+}
+
+export default Student;
+
+import Student from './Student'
+
+
+function App() {
+
+
+
+  return (
+    <>
+      <div>
+        <Student name="vaibhavi" age={22} city="vadodara" />
+      </div>
+    </>
+  )
+}
+
+*************************************************************************************************************
+
+function Student(props){
+    return (
+        <div>
+        <h2>name : {props.data.name}</h2>
+        <h2>age : {props.data.age}</h2>
+        <h2>city : {props.data.city}</h2>
+        </div>
+    )
+}
+
+export default Student;
+
+function App() {
+
+  const student = {
+    name:"tops",
+    age:22,
+    city:"vadodara"
+  };
+
+  return (
+    <>
+      <div>
+        <Student data={student} />
+      </div>
+    </>
+  )
+}
+
+*************************************************************************************************************
+
+function App() {
+
+  const arr = ["java","php","python","Go"];
+
+  return (
+    <>
+      <div>
+        {arr.map((item, index) => (
+          <h3 key={index}>{item}</h3>
+        ))}
+      </div>
+    </>
+  )
+}
+
+export default App
+
+*************************************************************************************************************
+
+function App() {
+
+  const employee = [
+    {
+      name:"emp1",
+      age:22
+    },
+    {
+      name:"emp2",
+      age:21
+    },
+    {
+      name:"emp3",
+      age:23
+    }
+  ];
+
+  return (
+    <>
+      <div>
+        {
+        employee.map((item) => (
+          <div key={item}>
+            <h2>{item.name}</h2>
+            <h2>{item.age}</h2>
+          </div>
+        ))
+        }
+      </div>
+    </>
+  )
+}
+
+*************************************************************************************************************
+
+function App() {
+
+  const employee = [
+    {
+      name:"emp1",
+      age:22
+    },
+    {
+      name:"emp2",
+      age:21
+    },
+    {
+      name:"emp3",
+      age:23
+    }
+  ];
+
+  return (
+    <>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            employee.map((item)=>(
+              <tr key={item}>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+
+      </table>
+    </>
+  )
+}
+
+*************************************************************************************************************
+
+function App() {
+
+  const marks = [30,50,71];
+
+  return (
+    <>{
+      marks.map((mark,index)=>(
+        <h2 key={index}>{mark} - {mark % 2 == 0?"EVEN":"ODD"}</h2>
+      ))
+    }
+    </>
+  )
+}
+
+*************************************************************************************************************
+
+function App() {
+  const cart = [
+    {
+      id:1,
+      name:"pen",
+      price:10.0,
+      quantity:2
+    },
+    {
+      id:2,
+      name:"pencil",
+      price:5.0,
+      quantity:1
+    },
+    {
+      id:3,
+      name:"book",
+      price:50.0,
+      quantity:3
+    }
+  ];
+
+  return (
+    <><table border="2">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            cart.map((index)=>(
+              <tr key={index}>
+                <td>{index.id}</td>
+                <td>{index.name}</td>
+                <td>{index.price}</td>
+                <td>{index.quantity}</td>
+                <td>{index.price * index.quantity}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+
+      </table>
+    </>
+  )
+}
